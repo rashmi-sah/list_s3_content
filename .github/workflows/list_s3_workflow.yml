@@ -21,9 +21,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: List s3 bucket content
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: Configure AWS credentials from Production account
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::394744526265:user/rahul
         aws-region: us-east-1
-      run: aws s3 sync . s3://buck7sept22
+
+    - name: Copy files to the production website with the AWS CLI
+      run: |
+        aws s3 sync . s3://buck7sept22
