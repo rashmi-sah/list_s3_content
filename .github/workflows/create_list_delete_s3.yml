@@ -33,7 +33,8 @@ jobs:
          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
          AWS_REGION: ${{ secrets.AWS_REGION }}
       run: |
-        aws s3 mb s3://buck12sept22
-		aws s3 ls
-		aws s3 ls s3://buck12sept22
-		aws s3 rb s3://buck12sept22
+        aws s3 mb s3://buck7sept22
+	aws s3 ls
+	aws s3 ls s3://buck7sept22
+	aws s3 rb s3://buck7sept22
+  
